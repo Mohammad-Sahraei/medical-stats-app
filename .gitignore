@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.output/
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+full-medstat.tar

@@ -1,0 +1,138 @@
+:root,
+[data-theme="light"] {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --surface-light: #fffefb;
+  --surface-dark: #efece2;
+
+  --text: #55504a;
+  --text-h: #211e1a;
+
+  --border: #e6e1d6;
+  --border-light: #efeae0;
+  --border-dark: #d8d2c2;
+
+  --code-bg: #efece2;
+
+  --accent: #aa3bff;
+  --accent-light: #c076ff;
+  --accent-bg: rgba(170, 59, 255, 0.08);
+  --accent-border: rgba(170, 59, 255, 0.35);
+  --accent-ring: rgba(170, 59, 255, 0.55);
+
+  --shadow:
+    rgba(0, 0, 0, 0.06) 0 10px 15px -3px, rgba(0, 0, 0, 0.03) 0 4px 6px -2px;
+
+  --sans: "Estedad", system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: "Estedad", system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+[data-theme="dark"] {
+  --bg: #16171d;
+  --surface: #23242c;
+  --surface-light: #2b2d36;
+  --surface-dark: #1c1d23;
+
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+
+  --border: #2e303a;
+  --border-light: #383a45;
+  --border-dark: #24262e;
+
+  --code-bg: #1f2028;
+
+  --accent: #c084fc;
+  --accent-light: #d3a6fd;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(192, 132, 252, 0.5);
+  --accent-ring: rgba(192, 132, 252, 0.55);
+
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* On wide screens, render the app as a centered mobile-width column instead
+   of stretching content across the whole viewport (this app's layouts,
+   including the fixed bottom navbars, are designed mobile-first). */
+@media (min-width: 640px) {
+  #root {
+    max-width: 560px;
+    min-height: 100vh;
+    box-shadow: var(--shadow);
+    border-inline: 1px solid var(--border);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  margin: 16px 0;
+  @media (max-width: 1024px) {
+    font-size: 26px;
+    margin: 12px 0;
+  }
+}
+h2 {
+  font-size: 22px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

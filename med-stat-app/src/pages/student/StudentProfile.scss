@@ -1,0 +1,308 @@
+@use "../../styles/variables" as *;
+
+.student-profile-page {
+  padding: $space-lg;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  background: $color-background;
+  min-height: 100vh;
+}
+
+/* title */
+
+.page-title {
+  font-size: $font-xxl;
+  font-weight: 700;
+  color: $color-text-main;
+}
+
+.profile-state {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $color-text-muted;
+  gap: $space-sm;
+
+  .spin {
+    animation: spin 1s linear infinite;
+    color: $color-primary;
+  }
+}
+
+.profile-save-error {
+  margin: 0 $space-lg;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* -----------------------------
+   profile card
+------------------------------*/
+
+.profile-card {
+  @include card;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+
+  svg {
+    color: $color-primary;
+  }
+
+  h2 {
+    font-size: $font-lg;
+    color: $color-text-main;
+  }
+
+  p {
+    font-size: $font-sm;
+    color: $color-text-muted;
+  }
+}
+
+/* edit button */
+
+.edit-btn {
+  width: 40px;
+  height: 40px;
+
+  border-radius: $radius-md;
+  border: none;
+
+  background: $color-primary;
+  color: white;
+
+  cursor: pointer;
+
+  @include flex-center;
+  @include smooth-transition;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+}
+
+
+/* -----------------------------
+   fields
+------------------------------*/
+
+.profile-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-md;
+
+  @include onMobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+
+  label {
+    font-size: $font-sm;
+    color: $color-text-muted;
+  }
+
+  input {
+    height: 44px;
+
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+
+    background: $color-surface-dark;
+    color: $color-text-main;
+
+    padding: 0 $space-sm;
+
+    font-family: $font-main;
+    font-size: $font-md;
+
+    outline: none;
+
+    @include smooth-transition;
+
+    &:focus {
+      border-color: $color-primary;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+
+/* -----------------------------
+   calendar card
+------------------------------*/
+
+.calendar-card {
+  @include card;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  svg {
+    color: $color-primary;
+  }
+
+  h3 {
+    font-size: $font-lg;
+    color: $color-text-main;
+    margin: 0;
+  }
+}
+
+
+/* -----------------------------
+   settings card
+------------------------------*/
+
+.settings-card {
+  @include card;
+
+  padding: 0;
+}
+
+.settings-item {
+  width: 100%;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  padding: 0 $space-md;
+
+  border: none;
+  background: transparent;
+
+  color: $color-text-main;
+  font-size: $font-md;
+
+  cursor: pointer;
+
+  border-bottom: 1px solid $color-border;
+
+  @include smooth-transition;
+
+  svg {
+    color: $color-text-muted;
+  }
+
+  &:hover {
+    background: $color-surface-light;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.logout {
+    color: #ff6b6b;
+
+    svg {
+      color: #ff6b6b;
+    }
+  }
+}
+
+.settings-panel {
+  padding: $space-md;
+  border-bottom: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    color: $color-text-main;
+    font-size: $font-md;
+
+    svg {
+      color: $color-primary;
+    }
+  }
+}
+
+.theme-switch {
+  width: 46px;
+  height: 26px;
+  border-radius: $radius-xl;
+  border: 1px solid $color-border;
+  background: $color-surface-dark;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  @include smooth-transition;
+
+  .theme-switch-knob {
+    position: absolute;
+    top: 2px;
+    inset-inline-start: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $color-primary;
+    @include smooth-transition;
+  }
+
+  &.is-dark {
+    .theme-switch-knob {
+      inset-inline-start: 22px;
+    }
+  }
+}
+
+.password-message {
+  font-size: $font-xs;
+  margin: 0;
+
+  &.error {
+    color: #ff6b6b;
+  }
+
+  &.success {
+    color: #3ecf8e;
+  }
+}

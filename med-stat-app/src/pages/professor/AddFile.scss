@@ -1,0 +1,147 @@
+@use "../../styles/variables" as *;
+
+.add-file-page {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: $space-md;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.target-type-toggle {
+  display: flex;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  overflow: hidden;
+
+  button {
+    flex: 1;
+    padding: $space-sm;
+    border: none;
+    background: $color-surface;
+    color: $color-text-muted;
+    font-family: $font-main;
+    cursor: pointer;
+    @include smooth-transition;
+
+    &.active {
+      background: $color-primary;
+      color: white;
+    }
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+
+  label {
+    font-size: $font-sm;
+    color: $color-text-muted;
+  }
+
+  input,
+  select {
+    height: 44px;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    background: $color-surface;
+    color: $color-text-main;
+    padding: 0 $space-sm;
+    font-family: $font-main;
+    font-size: $font-sm;
+    outline: none;
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+}
+
+.upload-btn {
+  height: 44px;
+  border-radius: $radius-md;
+  border: none;
+  background: $color-primary;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xs;
+  font-family: $font-main;
+  font-size: $font-sm;
+  @include smooth-transition;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.uploaded-files {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  h3 {
+    font-size: $font-md;
+    color: $color-text-main;
+    margin: 0;
+  }
+}
+
+.empty-note {
+  color: $color-text-muted;
+  font-size: $font-sm;
+  margin: 0;
+}
+
+.uploaded-file-row {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  padding: $space-sm;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background: $color-surface;
+
+  svg {
+    color: $color-primary;
+    flex: none;
+  }
+
+  .file-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .file-title {
+    color: $color-text-main;
+    font-size: $font-sm;
+  }
+
+  .file-source {
+    color: $color-text-muted;
+    font-size: $font-xs;
+  }
+
+  .delete-btn {
+    border: none;
+    background: transparent;
+    color: #dc2626;
+    cursor: pointer;
+    display: flex;
+  }
+}

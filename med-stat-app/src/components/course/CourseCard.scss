@@ -1,0 +1,75 @@
+@use "../../styles/variables" as *;
+
+.course-card {
+  @include card;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-card-title {
+  font-size: $font-lg;
+  font-weight: 700;
+  color: $color-text-main;
+}
+
+.course-card-progress-number {
+  font-size: $font-sm;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.course-card-description {
+  font-size: $font-sm;
+  color: $color-text-muted;
+}
+
+.course-card-progress {
+  height: 8px;
+
+  background: $color-surface-dark;
+
+  border-radius: $radius-xl;
+
+  overflow: hidden;
+}
+
+.course-card-progress-bar {
+  height: 100%;
+
+  background: $color-primary;
+}
+
+.course-card-btn {
+  height: 40px;
+
+  border: none;
+
+  border-radius: $radius-md;
+
+  background: $color-primary;
+  color: white;
+
+  font-size: $font-sm;
+
+  cursor: pointer;
+
+  @include smooth-transition;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+}

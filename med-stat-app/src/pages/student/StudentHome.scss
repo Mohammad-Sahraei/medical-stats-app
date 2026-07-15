@@ -1,0 +1,68 @@
+@use "../../styles/variables" as *;
+
+.student-home-page {
+  min-height: 100vh;
+
+  padding: $space-lg;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+/* header */
+
+.lesson-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  h1 {
+    font-size: $font-xl;
+    color: $color-text-main;
+  }
+
+  span {
+    font-size: $font-sm;
+    color: $color-primary;
+  }
+}
+
+/* lesson text */
+
+.lesson-content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  line-height: 1.9;
+
+  p {
+    font-size: $font-md;
+    color: $color-text-main;
+  }
+}
+
+/* next lesson */
+
+.next-lesson {
+  margin-top: $space-lg;
+
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+
+  color: $color-primary;
+
+  font-size: $font-md;
+
+  cursor: pointer;
+
+  width: fit-content;
+
+  @include smooth-transition;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

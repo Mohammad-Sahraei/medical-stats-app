@@ -1,0 +1,88 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.add-course-page {
+  padding: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+
+  @include onDesktop() {
+    padding: 24px 0;
+  }
+}
+
+.add-course-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  text-align: right;
+}
+
+.add-course-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include onDesktop() {
+    gap: 16px;
+  }
+}
+
+.add-course-card {
+  width: 100%;
+  text-align: right;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  color: $color-text-main;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.12s ease,
+    box-shadow 0.18s ease, border-color 0.18s ease;
+
+  // حذف استایل پیش‌فرض button
+  outline: none;
+
+  &:hover {
+    background-color: $color-surface-light;
+    border-color: $color-primary;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus-visible {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px var(--accent-ring);
+  }
+
+  @include onMobile() {
+    padding: 14px 14px;
+  }
+
+  @include onTablet() {
+    padding: 16px 18px;
+  }
+
+  @include onDesktop() {
+    padding: 18px 20px;
+  }
+}
+
+.add-course-card-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.add-course-card-desc {
+  font-size: 12px;
+  color: $color-text-muted;
+}

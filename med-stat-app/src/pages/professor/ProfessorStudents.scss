@@ -1,0 +1,64 @@
+@use "../../styles/variables" as *;
+
+.professor-students-page {
+  padding: $space-lg;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  @include onMobile {
+    padding: $space-md;
+  }
+}
+
+.students-search {
+  height: 46px;
+
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+
+  padding: 0 $space-md;
+
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  background: $color-surface;
+
+  input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: $color-text-main;
+    font-family: $font-main;
+  }
+}
+
+.students-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.students-state {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $color-text-muted;
+  gap: $space-sm;
+  padding: $space-xxl 0;
+
+  .spin {
+    animation: spin 1s linear infinite;
+    color: $color-primary;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

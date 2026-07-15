@@ -1,0 +1,112 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.update-prompt-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-lg;
+
+  z-index: 2000;
+  animation: update-prompt-fade-in 0.15s ease;
+}
+
+.update-prompt-modal {
+  width: min(360px, 100%);
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  padding: $space-xl $space-lg $space-lg;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $space-sm;
+
+  animation: update-prompt-pop-in 0.18s ease;
+
+  h3 {
+    margin: 0;
+    font-size: $font-lg;
+    color: $color-text-main;
+  }
+
+  p {
+    margin: 0;
+    font-size: $font-sm;
+    color: $color-text-muted;
+    line-height: 1.7;
+  }
+}
+
+.update-prompt-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: $space-xs;
+
+  background: var(--accent-bg);
+  color: $color-primary;
+}
+
+.update-prompt-actions {
+  width: 100%;
+  display: flex;
+  gap: $space-sm;
+  margin-top: $space-md;
+
+  button {
+    flex: 1;
+    padding: $space-sm $space-md;
+    border-radius: $radius-md;
+    font-size: $font-sm;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    @include smooth-transition;
+  }
+}
+
+.update-prompt-btn-cancel {
+  background: $color-surface-dark;
+  color: $color-text-main;
+  border-color: $color-border;
+
+  &:hover {
+    background: $color-surface-light;
+  }
+}
+
+.update-prompt-btn-primary {
+  background: $color-primary;
+  color: #fff;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes update-prompt-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes update-prompt-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

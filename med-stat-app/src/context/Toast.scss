@@ -1,0 +1,84 @@
+@use "../styles/variables" as *;
+
+.toast-container {
+  position: fixed;
+  top: calc(56px + #{$space-md}); // sits just below the sticky app header
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, calc(100% - #{$space-lg} * 2));
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  padding: $space-sm $space-md;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  border: 1px solid $color-border;
+  background: $color-surface;
+  color: $color-text-main;
+  font-size: $font-sm;
+
+  pointer-events: auto;
+  animation: toast-in 0.2s ease;
+
+  span {
+    flex: 1;
+  }
+}
+
+.toast-close {
+  border: none;
+  background: transparent;
+  color: $color-text-muted;
+  cursor: pointer;
+  display: flex;
+  padding: 2px;
+}
+
+.toast-success {
+  border-color: rgba(5, 150, 105, 0.35);
+  svg {
+    color: #059669;
+  }
+}
+
+.toast-error {
+  border-color: rgba(220, 38, 38, 0.35);
+  svg {
+    color: #dc2626;
+  }
+}
+
+.toast-info {
+  border-color: var(--accent-border);
+  svg {
+    color: $color-primary;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .toast-container {
+    width: calc(100% - #{$space-md} * 2);
+  }
+}

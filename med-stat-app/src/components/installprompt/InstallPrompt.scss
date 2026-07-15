@@ -1,0 +1,97 @@
+@use "../../styles/variables" as *;
+
+.install-prompt {
+  position: fixed;
+  left: 50%;
+  bottom: calc(72px + #{$space-md}); // sits above the bottom tab navbar
+  transform: translateX(-50%);
+  width: min(420px, calc(100% - #{$space-lg} * 2));
+
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  padding: $space-sm $space-md;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-lg;
+
+  z-index: 1500;
+  animation: install-prompt-in 0.2s ease;
+}
+
+.install-prompt-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-bg);
+  color: $color-primary;
+}
+
+.install-prompt-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  strong {
+    font-size: $font-sm;
+    color: $color-text-main;
+  }
+
+  span {
+    font-size: $font-xs;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+}
+
+.install-prompt-install {
+  flex: none;
+  padding: $space-xs $space-md;
+  border-radius: $radius-md;
+  border: none;
+  background: $color-primary;
+  color: #fff;
+  font-size: $font-sm;
+  font-weight: 600;
+  cursor: pointer;
+  @include smooth-transition;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+}
+
+.install-prompt-close {
+  flex: none;
+  border: none;
+  background: transparent;
+  color: $color-text-muted;
+  cursor: pointer;
+  display: flex;
+  padding: 2px;
+}
+
+@keyframes install-prompt-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 480px) {
+  .install-prompt {
+    width: calc(100% - #{$space-md} * 2);
+    bottom: calc(64px + #{$space-sm});
+  }
+}

@@ -1,0 +1,351 @@
+@use "../../styles/variables" as *;
+
+.edit-exam-root,
+.edit-exam-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px;
+  direction: rtl;
+  background:
+    radial-gradient(circle at top right, var(--accent-bg), transparent 32%),
+    $color-background;
+  color: $color-text-main;
+  font-family: inherit;
+}
+
+/* Header */
+
+.edit-exam-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.edit-exam-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  color: $color-text-main;
+  letter-spacing: -0.5px;
+}
+
+.edit-lesson-box {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.edit-lesson-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: $color-text-muted;
+}
+
+.edit-lesson-title {
+  font-size: 14px;
+  font-weight: 900;
+  color: $color-primary;
+}
+
+.edit-lesson-error,
+.edit-exam-warning {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(217, 119, 6, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Meta */
+
+.edit-exam-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+
+.edit-exam-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  color: $color-primary;
+  border: 1px solid var(--accent-border);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Form Groups */
+
+.edit-exam-group {
+  margin-bottom: 20px;
+}
+
+.edit-exam-label {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: $color-text-muted;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.edit-exam-input,
+.edit-exam-textarea {
+  width: 100%;
+  border: 1px solid $color-border;
+  background: $color-surface;
+  color: $color-text-main;
+  border-radius: 14px;
+  outline: none;
+  font-size: 15px;
+  font-family: inherit;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.edit-exam-input {
+  height: 48px;
+  padding: 0 14px;
+}
+
+.edit-exam-textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.9;
+  padding: 12px 14px;
+}
+
+.edit-exam-input::placeholder,
+.edit-exam-textarea::placeholder {
+  color: $color-text-muted;
+}
+
+.edit-exam-input:focus,
+.edit-exam-textarea:focus {
+  border-color: $color-primary;
+  background: $color-surface-light;
+  box-shadow: 0 0 0 4px var(--accent-border);
+}
+
+.edit-exam-input:disabled,
+.edit-exam-textarea:disabled,
+.edit-exam-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Select */
+
+.edit-exam-select .custom-select-trigger {
+  height: 48px;
+}
+
+/* Options */
+
+.edit-exam-options {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.edit-exam-options .edit-exam-label {
+  margin-bottom: 0;
+}
+
+.edit-exam-options .edit-exam-input {
+  position: relative;
+}
+
+/* Question Card */
+
+.question-editor {
+  position: relative;
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 24px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+}
+
+.question-editor::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, $color-primary, $color-primary-light);
+}
+
+.question-editor:hover {
+  border-color: $color-primary;
+  box-shadow: $shadow-md;
+}
+
+/* Actions */
+
+.edit-exam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.edit-exam-btn {
+  min-height: 46px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.edit-exam-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.edit-exam-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.edit-exam-btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+  box-shadow: 0 6px 16px var(--accent-border);
+}
+
+.edit-exam-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, $color-primary-light, $color-primary-dark);
+  box-shadow: 0 8px 20px var(--accent-border);
+}
+
+.edit-exam-btn-secondary {
+  color: $color-text-main;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.edit-exam-btn-secondary:hover:not(:disabled) {
+  color: $color-text-main;
+  background: $color-surface-light;
+  border-color: $color-primary;
+}
+
+/* حالت خاص برای دکمه حذف اگر خواستی کلاس danger بدهی */
+
+.edit-exam-btn-danger {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
+}
+
+.edit-exam-btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.35);
+}
+
+/* Loading / Empty */
+
+.edit-exam-loading,
+.edit-exam-page > div:first-child {
+  font-size: 15px;
+  font-weight: 800;
+  color: $color-text-muted;
+}
+
+/* اگر خواستی نمایش کلی صفحه کمی محدودتر و حرفه‌ای‌تر باشد */
+
+.edit-exam-page {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Focus visible for accessibility */
+
+.edit-exam-btn:focus-visible,
+.edit-exam-input:focus-visible,
+.edit-exam-textarea:focus-visible {
+  outline: 3px solid var(--accent-border);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .edit-exam-root,
+  .edit-exam-page {
+    padding: 22px;
+  }
+
+  .edit-exam-title {
+    font-size: 24px;
+  }
+
+  .question-editor {
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .edit-exam-root,
+  .edit-exam-page {
+    padding: 16px;
+  }
+
+  .edit-exam-title {
+    font-size: 22px;
+  }
+
+  .question-editor {
+    padding: 18px 14px;
+  }
+
+  .edit-exam-actions {
+    flex-direction: column;
+  }
+
+  .edit-exam-btn {
+    width: 100%;
+  }
+
+  .edit-lesson-box {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .edit-exam-meta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .edit-exam-meta span {
+    justify-content: center;
+  }
+}

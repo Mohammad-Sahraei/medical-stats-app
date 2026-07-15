@@ -1,0 +1,382 @@
+@use "../../styles/variables" as *;
+
+.courses-list-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 36px 28px 24px;
+  direction: rtl;
+}
+
+.courses-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+  padding: 28px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, var(--accent-bg), transparent 35%),
+    $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: $color-primary;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+  color: $color-text-main;
+}
+
+.page-subtitle {
+  max-width: 620px;
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.9;
+  color: $color-text-muted;
+}
+
+.search-wrapper {
+  position: relative;
+  min-width: 280px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $color-text-muted;
+}
+
+.search-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 44px 0 16px;
+  border-radius: 16px;
+  border: 1px solid $color-border;
+  outline: none;
+  background: $color-surface;
+  color: $color-text-main;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: $color-primary;
+  box-shadow: 0 0 0 4px var(--accent-border);
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 22px;
+}
+
+.lesson-card {
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  border-radius: 26px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+  transition: 0.22s ease;
+}
+
+.lesson-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: linear-gradient(90deg, $color-primary, $color-primary-light);
+}
+
+.lesson-card:hover {
+  transform: translateY(-5px);
+  box-shadow: $shadow-md;
+}
+
+.lesson-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.lesson-icon-box {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 20px;
+  color: $color-primary;
+  background: var(--accent-bg);
+}
+
+.lesson-main-info {
+  min-width: 0;
+}
+
+.lesson-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  color: $color-text-muted;
+}
+
+.lesson-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 900;
+  color: $color-text-main;
+  line-height: 1.6;
+}
+
+.lesson-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.action-btn {
+  height: 42px;
+  border: none;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  transition: 0.18s ease;
+}
+
+.action-btn.preview {
+  color: #0369a1;
+  background: rgba(3, 105, 161, 0.12);
+}
+
+.action-btn.preview:hover {
+  background: rgba(3, 105, 161, 0.22);
+}
+
+.action-btn.edit {
+  color: #c2410c;
+  background: rgba(194, 65, 12, 0.12);
+}
+
+.action-btn.edit:hover {
+  background: rgba(194, 65, 12, 0.22);
+}
+
+.action-btn.delete {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.action-btn.delete:hover {
+  background: rgba(220, 38, 38, 0.2);
+}
+
+.exam-section {
+  padding: 16px;
+  border-radius: 20px;
+  background: $color-surface-dark;
+  border: 1px solid $color-border;
+}
+
+.exam-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: $color-text-muted;
+}
+
+.section-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+  color: $color-text-main;
+}
+
+.exam-count {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $color-text-muted;
+}
+
+.exam-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 12px;
+}
+
+.exam-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 15px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  transition: 0.18s ease;
+}
+
+.exam-item:hover {
+  border-color: $color-primary;
+  box-shadow: 0 10px 24px var(--accent-border);
+}
+
+.exam-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exam-title {
+  font-size: 14px;
+  font-weight: 850;
+  color: $color-text-main;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exam-meta {
+  font-size: 12px;
+  font-weight: 700;
+  color: $color-text-muted;
+}
+
+.exam-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: $color-text-muted;
+  background: $color-surface-dark;
+  transition: 0.18s ease;
+}
+
+.icon-btn:hover {
+  color: #ffffff;
+  background: $color-primary;
+}
+
+.icon-btn.delete:hover {
+  color: #ffffff;
+  background: #dc2626;
+}
+
+.empty-exam-box {
+  padding: 14px;
+  border-radius: 15px;
+  background: $color-surface;
+  border: 1px dashed $color-border;
+  color: $color-text-muted;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.add-exam-cta-btn {
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(135deg, $color-primary, $color-primary-light);
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px var(--accent-border);
+  transition: 0.18s ease;
+}
+
+.add-exam-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px var(--accent-border);
+}
+
+.state-box {
+  padding: 22px;
+  border-radius: 20px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.state-box.error {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+@media (max-width: 768px) {
+  .courses-list-container {
+    padding: 24px 16px 24px;
+  }
+
+  .courses-hero {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 22px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .search-wrapper {
+    min-width: 100%;
+  }
+
+  .lessons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-card-actions {
+    grid-template-columns: 1fr;
+  }
+}

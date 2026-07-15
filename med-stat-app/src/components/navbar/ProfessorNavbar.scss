@@ -1,0 +1,46 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.prof-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  height: 64px;
+
+  background: $color-surface;
+  border-top: 1px solid $color-border;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: $color-text-muted;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25%;
+  height: 100%;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &.active {
+    color: $color-primary;
+  }
+}

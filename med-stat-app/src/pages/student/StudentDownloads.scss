@@ -1,0 +1,215 @@
+@use "../../styles/variables" as *;
+
+.student-downloads-page {
+  min-height: 100vh;
+
+  padding: $space-lg;
+
+  background: $color-background;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+
+/* -----------------------------
+   header
+------------------------------*/
+
+.downloads-header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  h1 {
+    font-size: $font-xxl;
+    color: $color-text-main;
+  }
+}
+
+
+/* -----------------------------
+   search
+------------------------------*/
+
+.search-box {
+  height: 48px;
+
+  background: $color-surface;
+
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  padding: 0 $space-md;
+
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  svg {
+    color: $color-text-muted;
+  }
+
+  input {
+    flex: 1;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: $color-text-main;
+
+    font-size: $font-md;
+    font-family: $font-main;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+}
+
+
+/* -----------------------------
+   list
+------------------------------*/
+
+.downloads-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+
+/* -----------------------------
+   card
+------------------------------*/
+
+.download-card {
+  @include card;
+
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+
+  &.locked {
+    opacity: 0.75;
+  }
+}
+
+.file-icon {
+  min-width: 52px;
+  height: 52px;
+
+  border-radius: $radius-md;
+
+  background: var(--accent-bg);
+
+  color: $color-primary;
+
+  @include flex-center;
+
+  .locked & {
+    background: $color-surface-dark;
+    color: $color-text-muted;
+  }
+}
+
+.lock-note {
+  color: $color-text-muted;
+  font-size: $font-xs;
+}
+
+.file-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.file-info {
+  h3 {
+    color: $color-text-main;
+    font-size: $font-md;
+    margin-bottom: 4px;
+  }
+
+  p {
+    color: $color-text-muted;
+    font-size: $font-sm;
+  }
+}
+
+.file-meta {
+  display: flex;
+  gap: $space-md;
+
+  span {
+    color: $color-text-muted;
+    font-size: $font-xs;
+  }
+}
+
+
+/* -----------------------------
+   download button
+------------------------------*/
+
+.download-btn {
+  width: 44px;
+  height: 44px;
+
+  border: none;
+  border-radius: $radius-md;
+
+  background: $color-primary;
+  color: white;
+
+  cursor: pointer;
+
+  @include flex-center;
+  @include smooth-transition;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+
+  &:disabled {
+    background: $color-surface-dark;
+    color: $color-text-muted;
+    cursor: not-allowed;
+  }
+}
+
+
+/* -----------------------------
+   empty state
+------------------------------*/
+
+.empty-state {
+  margin-top: 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-md;
+
+  color: $color-text-muted;
+
+  text-align: center;
+
+  p {
+    font-size: $font-md;
+  }
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,207 @@
+@use "../../styles/variables" as *;
+
+.add-exam-page {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: $space-md;
+  font-family: $font-main;
+  color: $color-text-main;
+
+  @include onDesktop() {
+    padding: $space-lg 0;
+  }
+}
+
+.add-exam-title {
+  font-size: $font-lg;
+  font-weight: 600;
+  margin: 0 0 $space-md;
+  text-align: right;
+}
+
+.add-exam-meta {
+  font-size: $font-sm;
+  color: $color-text-muted;
+  margin-bottom: $space-md;
+  text-align: right;
+}
+
+.add-exam-group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  margin-bottom: $space-md;
+}
+
+.add-exam-label {
+  font-size: $font-sm;
+  color: $color-text-muted;
+  text-align: right;
+}
+
+.add-exam-input,
+.add-exam-textarea {
+  width: 100%;
+  background-color: $color-surface;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  padding: $space-sm $space-md;
+  color: $color-text-main;
+  font-size: $font-sm;
+  font-family: $font-main;
+  outline: none;
+  box-shadow: none;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+
+  &::placeholder {
+    color: $color-text-muted;
+    opacity: 0.8;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 1px var(--accent-ring);
+    background-color: $color-surface-light;
+  }
+}
+
+.add-exam-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.add-exam-options {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  margin-bottom: $space-md;
+}
+
+.add-exam-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-sm;
+  margin-top: $space-lg;
+
+  @include onMobile(480px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.add-exam-btn {
+  flex: 1;
+  padding: $space-sm $space-md;
+  border-radius: $radius-md;
+  border: none;
+  font-family: $font-main;
+  font-size: $font-sm;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    transform 0.12s ease,
+    box-shadow 0.18s ease;
+}
+
+.add-exam-btn-primary {
+  background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+  color: #fff;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.add-exam-btn-secondary {
+  background-color: $color-surface-dark;
+  color: $color-text-main;
+  border: 1px solid $color-border;
+
+  &:hover {
+    background-color: $color-surface-light;
+  }
+}
+
+.add-exam-header {
+  margin-bottom: 20px;
+}
+
+.exam-lesson-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--accent-bg);
+  color: $color-primary;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.exam-lesson-label {
+  color: $color-primary;
+}
+
+.exam-lesson-title {
+  color: $color-text-main;
+}
+
+.exam-lesson-error {
+  margin-top: 8px;
+  color: #dc2626;
+  font-size: 13px;
+}
+
+.add-exam-warning {
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: rgba(217, 119, 6, 0.12);
+  color: #b45309;
+}
+
+.add-exam-success {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  text-align: center;
+}
+
+.pdf-upload-row {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  flex-wrap: wrap;
+
+  input[type="file"] {
+    flex: 1;
+    min-width: 180px;
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex: none;
+  }
+}
+
+.pdf-upload-message {
+  font-size: $font-xs;
+  color: $color-text-muted;
+}

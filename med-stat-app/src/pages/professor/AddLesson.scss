@@ -1,0 +1,131 @@
+.add-lesson-page{
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* فاصله بین عنوان و ادیتور */
+.form-group{
+  margin-bottom: 20px;
+}
+
+/* رنگ ادیتور را مجبوراً override می‌کنیم */
+.jodit-container{
+  background: #ffffff !important;
+}
+
+.jodit-wysiwyg{
+  background: #ffffff !important;
+  color: #111 !important;
+  direction: rtl;
+  text-align: right;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* این باعث می‌شود حتی اگر پروژه گفت "همه متن سفید!" → باز هم سیاه باشد */
+.jodit-wysiwyg * {
+  color: #111 !important;
+}
+
+/* دکمه‌ها */
+.lesson-actions{
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary{
+  background: #4f46e5;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-primary:hover{
+  background: #4338ca;
+}
+
+.btn-secondary{
+  background: white;
+  color: #444;
+  border: 1px solid #ccc;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-secondary:hover{
+  background: #f3f4f6;
+}
+
+.btn-danger{
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-danger:hover{
+  background: #fecaca;
+}
+
+.btn-danger:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pdf-upload-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.pdf-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  input[type="file"] {
+    flex: 1;
+    min-width: 180px;
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+.pdf-upload-message {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* موبایل */
+@media (max-width:768px){
+  .lesson-actions{
+    flex-direction: column;
+  }
+
+  .pdf-upload-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

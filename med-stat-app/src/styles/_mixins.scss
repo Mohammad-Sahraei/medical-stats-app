@@ -1,0 +1,47 @@
+@use "./variables" as *;
+
+/* flex center */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* flex between */
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* flex column */
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive breakpoints live in _variables.scss (onMobile/onTablet/onDesktop) —
+   this file used to redeclare its own colliding set; canonicalized on one source. */
+
+/* text truncate */
+@mixin truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* multi line truncate */
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* button reset */
+@mixin button-reset {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: $font-main;
+}

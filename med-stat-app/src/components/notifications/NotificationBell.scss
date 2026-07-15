@@ -1,0 +1,138 @@
+@use "../../styles/variables" as *;
+
+.notification-bell {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: $color-text-main;
+  cursor: pointer;
+  @include flex-center;
+}
+
+.notification-bell-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 999px;
+
+  background: #dc2626;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}
+
+.notification-list-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: $space-lg;
+
+  z-index: 2000;
+  animation: notification-list-fade-in 0.15s ease;
+}
+
+.notification-list-panel {
+  width: min(380px, 100%);
+  max-height: 70vh;
+  margin-top: 64px;
+
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  animation: notification-list-pop-in 0.18s ease;
+}
+
+.notification-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: $space-md;
+  border-bottom: 1px solid $color-border;
+
+  span {
+    font-size: $font-md;
+    font-weight: 700;
+    color: $color-text-main;
+  }
+
+  button {
+    border: none;
+    background: transparent;
+    color: $color-text-muted;
+    cursor: pointer;
+    display: flex;
+  }
+}
+
+.notification-list-body {
+  overflow-y: auto;
+  padding: $space-sm $space-md;
+}
+
+.notification-list-empty {
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-sm;
+  padding: $space-lg 0;
+}
+
+.notification-list-item {
+  padding: $space-sm 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.notification-list-date {
+  display: block;
+  font-size: $font-xs;
+  color: $color-primary;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.notification-list-message {
+  margin: 0;
+  font-size: $font-sm;
+  color: $color-text-main;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+@keyframes notification-list-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes notification-list-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

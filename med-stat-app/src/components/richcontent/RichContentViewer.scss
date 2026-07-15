@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+
+.rich-content img {
+  cursor: pointer;
+}
+
+.rich-content-image-download {
+  position: fixed;
+  z-index: 500;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+
+  display: grid;
+  place-items: center;
+
+  background: $color-primary;
+  color: #fff;
+  box-shadow: $shadow-md;
+  cursor: pointer;
+  @include smooth-transition;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+
+  animation: rich-image-download-in 0.12s ease;
+}
+
+@keyframes rich-image-download-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

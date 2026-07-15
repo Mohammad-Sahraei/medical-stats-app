@@ -1,0 +1,52 @@
+@use "../../styles/variables" as *;
+
+.lesson-preview {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.lesson-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: $color-text-main;
+}
+
+.section-card {
+  background: $color-surface;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: $color-text-main;
+}
+
+.section-body {
+  font-size: 15px;
+  line-height: 1.9;
+  color: $color-text-muted;
+}
+
+@media (max-width: 640px) {
+  .lesson-preview {
+    margin: 20px auto;
+    padding: 14px;
+  }
+
+  .lesson-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .section-card {
+    padding: 14px;
+  }
+}

@@ -1,0 +1,163 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+/* صفحه اصلی */
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  background: $color-background;
+  color: $color-text-main;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: $space-xl $space-lg;
+
+  overflow-y: auto;
+}
+
+/* کانتینر فرم */
+.login-content {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+/* لوگو */
+.login-logo {
+  width: 80px;
+  margin-bottom: $space-lg;
+  align-self: flex-start;
+}
+
+/* input group */
+.input-group {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    border-radius: $radius-md;
+    background: $color-surface;
+    border: 1px solid $color-border;
+
+    color: $color-text-main;
+    font-size: $font-md;
+    direction: rtl;
+
+    &::placeholder {
+      text-align: right;
+      direction: rtl;
+      color: $color-text-muted;
+      font-family: $font-main;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+      outline: none;
+      box-shadow: 0 0 0 2px var(--accent-border);
+    }
+
+    &:hover {
+      border-color: $color-primary;
+    }
+  }
+}
+
+/* error */
+.error-text {
+  font-size: 12px;
+  color: #ff6b6b;
+}
+
+/* button */
+.login-button {
+  align-self: center;
+
+  padding: 12px 28px;
+
+  border-radius: $radius-md;
+  background: $color-primary;
+
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  font-size: $font-md;
+
+  transition: 0.2s;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+}
+
+/* forgot password link */
+.forgot-password-link {
+  font-size: $font-sm;
+  text-align: left;
+  margin-top: -#{$space-sm};
+
+  a {
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* register link */
+.register-link {
+  font-size: $font-sm;
+  margin-top: $space-md;
+  text-align: center;
+
+  a {
+    color: $color-primary;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* موبایل */
+@include onMobile(480px) {
+
+  .login-page {
+    padding: $space-lg $space-md;
+  }
+
+  .login-content {
+    max-width: 100%;
+  }
+
+  .login-logo {
+    width: 70px;
+    
+  }
+
+  .input-group input {
+    padding: 12px;
+    font-size: $font-sm;
+  }
+
+  .login-button {
+    padding: 10px 22px;
+    font-size: $font-sm;
+  }
+}

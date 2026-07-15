@@ -1,0 +1,117 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.register-page {
+  width: 100%;
+  min-height: 100vh;
+  background: $color-background;
+  color: $color-text-main;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 40px 16px;
+}
+
+.register-content {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.register-logo {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+/* inputs */
+
+.input-group {
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: 1px solid $color-border;
+
+  color: $color-text-main;
+  font-size: $font-md;
+  direction: rtl;
+
+  &:focus {
+    border-color: $color-primary;
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-border);
+  }
+}
+
+.input-group input::placeholder {
+  text-align: right;
+  color: $color-text-muted;
+}
+
+.error-text {
+  font-size: 12px;
+  color: #ff6b6b;
+}
+
+/* button */
+
+.register-button {
+  align-self: center;
+
+  padding: 10px 26px;
+  border-radius: $radius-md;
+  border: none;
+
+  background: $color-primary;
+  color: white;
+
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+}
+
+/* link */
+
+.login-link {
+  text-align: center;
+  font-size: $font-sm;
+  margin-top: $space-md;
+
+  a {
+    color: $color-primary;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.forgot-password-hint {
+  text-align: center;
+  font-size: $font-sm;
+  color: $color-text-muted;
+  line-height: 1.8;
+  margin: 0 0 4px;
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

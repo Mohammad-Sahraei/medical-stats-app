@@ -1,0 +1,51 @@
+@use "../../styles/variables" as *;
+
+.app-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+
+  height: 56px;
+  padding: 0 $space-md;
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.app-header-side {
+  width: 40px;
+  height: 40px;
+  @include flex-center;
+}
+
+.app-header-back {
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-md;
+  border: none;
+  background: transparent;
+  color: $color-text-main;
+
+  @include flex-center;
+  @include smooth-transition;
+
+  &:hover {
+    background: $color-surface-dark;
+  }
+}
+
+.app-header-title {
+  margin: 0;
+  font-size: $font-lg;
+  font-weight: 700;
+  color: $color-text-main;
+  text-align: center;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

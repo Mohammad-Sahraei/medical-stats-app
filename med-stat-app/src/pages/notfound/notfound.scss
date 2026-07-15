@@ -1,0 +1,54 @@
+@use "../../styles/variables" as *;
+
+.notfound-page {
+  width: 100%;
+  min-height: 100vh;
+  background: $color-background;
+  color: $color-text-main;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: $space-lg;
+}
+
+.notfound-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-sm;
+  text-align: center;
+
+  h1 {
+    font-size: 64px;
+    font-weight: 700;
+    color: $color-primary;
+    margin: 0;
+  }
+
+  p {
+    font-size: $font-md;
+    color: $color-text-muted;
+    margin: 0 0 $space-md;
+  }
+}
+
+.notfound-button {
+  padding: 12px 28px;
+
+  border-radius: $radius-md;
+  background: $color-primary;
+
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  font-size: $font-md;
+
+  transition: 0.2s;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+}

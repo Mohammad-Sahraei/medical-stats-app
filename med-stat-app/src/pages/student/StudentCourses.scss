@@ -1,0 +1,85 @@
+@use "../../styles/variables" as *;
+
+.student-courses-page {
+  padding: $space-lg;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  @include onMobile {
+    padding: $space-md;
+  }
+}
+
+/* header */
+
+.student-courses-header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+/* search */
+
+.courses-search {
+  height: 46px;
+
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+
+  padding: 0 $space-md;
+
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  background: $color-surface;
+
+  svg {
+    color: $color-text-muted;
+  }
+
+  input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: $color-text-main;
+    font-size: $font-sm;
+    font-family: $font-main;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+}
+
+/* grid */
+
+.student-courses-grid {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.courses-state {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $color-text-muted;
+  gap: $space-sm;
+  padding: $space-xxl 0;
+
+  .spin {
+    animation: spin 1s linear infinite;
+    color: $color-primary;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

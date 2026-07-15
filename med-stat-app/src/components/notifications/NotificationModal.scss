@@ -1,0 +1,150 @@
+@use "../../styles/variables" as *;
+
+.notification-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-lg;
+
+  z-index: 2000;
+  animation: notification-fade-in 0.15s ease;
+}
+
+.notification-modal {
+  width: min(380px, 100%);
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  padding: $space-lg;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  animation: notification-pop-in 0.18s ease;
+}
+
+.notification-modal-header {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.notification-modal-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-bg);
+  color: $color-primary;
+  flex: none;
+}
+
+.notification-modal-date {
+  flex: 1;
+  font-size: $font-sm;
+  font-weight: 600;
+  color: $color-text-main;
+}
+
+.notification-modal-close {
+  border: none;
+  background: transparent;
+  color: $color-text-muted;
+  cursor: pointer;
+  display: flex;
+}
+
+.notification-modal-message {
+  margin: 0;
+  color: $color-text-main;
+  font-size: $font-sm;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.notification-modal-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background: $color-surface-dark;
+  color: $color-text-main;
+  padding: $space-sm;
+  font-family: $font-main;
+  font-size: $font-sm;
+  outline: none;
+  @include smooth-transition;
+
+  &:focus {
+    border-color: $color-primary;
+  }
+}
+
+.notification-modal-actions {
+  display: flex;
+  gap: $space-sm;
+
+  button {
+    flex: 1;
+    padding: $space-sm $space-md;
+    border-radius: $radius-md;
+    font-size: $font-sm;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-xs;
+    @include smooth-transition;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.notification-modal-save {
+  background: $color-primary;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+}
+
+.notification-modal-delete {
+  background: transparent;
+  color: #dc2626;
+  border-color: rgba(220, 38, 38, 0.35) !important;
+
+  &:hover:not(:disabled) {
+    background: rgba(220, 38, 38, 0.08);
+  }
+}
+
+@keyframes notification-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes notification-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

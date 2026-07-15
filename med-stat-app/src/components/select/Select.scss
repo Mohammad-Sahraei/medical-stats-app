@@ -1,0 +1,129 @@
+@use "../../styles/variables" as *;
+
+.custom-select {
+  position: relative;
+  width: 100%;
+
+  &.disabled {
+    opacity: 0.6;
+  }
+}
+
+.custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+
+  padding: 10px 12px;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background: $color-surface;
+  color: $color-text-main;
+  font-family: inherit;
+  font-size: $font-sm;
+  text-align: right;
+  cursor: pointer;
+  @include smooth-transition;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .placeholder {
+    color: $color-text-muted;
+  }
+
+  .chevron {
+    flex-shrink: 0;
+    color: $color-text-muted;
+    transition: transform 0.18s ease;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.custom-select.open .custom-select-trigger {
+  border-color: $color-primary;
+  box-shadow: 0 0 0 1px var(--accent-border);
+
+  .chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.custom-select-list {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+
+  max-height: 240px;
+  overflow-y: auto;
+
+  margin: 0;
+  padding: $space-xs;
+  list-style: none;
+
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+
+  animation: select-list-in 0.15s ease;
+}
+
+.custom-select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+
+  padding: $space-sm $space-sm;
+  border-radius: $radius-sm;
+  font-size: $font-sm;
+  color: $color-text-main;
+  cursor: pointer;
+
+  svg {
+    color: $color-primary;
+    flex-shrink: 0;
+  }
+
+  &.active {
+    background: $color-surface-dark;
+  }
+
+  &.selected {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}
+
+.custom-select-empty {
+  padding: $space-sm;
+  font-size: $font-sm;
+  color: $color-text-muted;
+  text-align: center;
+}
+
+@keyframes select-list-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,188 @@
+@use "./fonts";
+@use "./variables" as *;
+@use "./mixins" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* تنظیمات پایه HTML و Body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: "Estedad", $font-main, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background-color: $color-background;
+  color: $color-text-main;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  direction: rtl;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  color: $color-text-main;
+  padding: 10px 12px;
+  outline: none;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 1px var(--accent-border);
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.app-page {
+  padding: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+
+  @include onDesktop() {
+    padding: 24px 0;
+  }
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+/* Base styles for rich-text lesson/section content (Jodit output) rendered
+   via dangerouslySetInnerHTML — images and tables have no built-in styling
+   otherwise, and table borders default to invisible against a dark bg.
+
+   Tables should scroll horizontally within themselves rather than being
+   squeezed to fit (real Jodit tables use percentage column widths, e.g. 7
+   columns at ~14% each — forcing those to strictly fit a ~360px mobile
+   screen makes cell text unreadably cramped).
+
+   Styling overflow directly on the <table> element itself is unreliable:
+   tables have their own intrinsic-sizing behavior that can still leak their
+   natural (unwrapped) content width to shrink-to-fit ancestors even with
+   overflow set on the table — which was still pushing the whole page wider.
+   resolveContentUrls() (src/utils/richContent.ts) wraps every <table> in a
+   plain .table-scroll-wrapper div at render time; scrolling that plain div
+   instead reliably contains the table, since overflow != visible makes an
+   element establish its own sizing context for its descendants. */
+.rich-content {
+  max-width: 100%;
+
+  // Content pasted into Jodit from Word/Docs carries its own inline
+  // font-family (and the editor's own default paragraph font), which
+  // otherwise overrides the site-wide font set on <body>. Force every
+  // descendant back to the site font regardless of inline styles.
+  * {
+    font-family: $font-main !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: $radius-md;
+    margin: $space-sm 0;
+  }
+
+  // The browser default (40px per nesting level) reads as a huge gap
+  // between the bullet marker and the body text, and compounds on nested
+  // sub-lists (e.g. "•" items containing further "o" sub-items).
+  ul,
+  ol {
+    margin: $space-xs 0;
+    padding-inline-start: 20px;
+  }
+
+  li {
+    margin-bottom: $space-xs;
+    line-height: 1.8;
+  }
+
+  .table-scroll-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: $space-md 0;
+    // Scroll-position math for RTL containers is inconsistently implemented
+    // across browsers (some expect scrollLeft to go negative, others don't),
+    // which was letting an overflowing table expand the page's layout
+    // viewport instead of scrolling cleanly within this wrapper. Keeping the
+    // SCROLL CONTAINER itself ltr sidesteps that inconsistency; the table's
+    // own direction is set back to rtl below so column order and text flow
+    // still read correctly for Persian content.
+    direction: ltr;
+  }
+
+  table {
+    direction: rtl;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid $color-border;
+    padding: $space-sm;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  th {
+    background: $color-surface-dark;
+    color: $color-text-main;
+    font-weight: 700;
+  }
+
+  td {
+    color: $color-text-main;
+  }
+}
+
+

@@ -1,0 +1,133 @@
+@use "../../styles/variables" as *;
+
+.student-score-row {
+  @include card;
+  padding: 0;
+  overflow: hidden;
+}
+
+.student-row-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-md;
+
+  padding: $space-md;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: $font-main;
+
+  .chevron {
+    color: $color-text-muted;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+}
+
+.student-score-row.expanded .student-row-toggle .chevron {
+  transform: rotate(180deg);
+}
+
+.student-info {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  text-align: right;
+
+  svg {
+    color: $color-primary;
+    flex-shrink: 0;
+  }
+}
+
+.student-name {
+  color: $color-text-main;
+  font-size: $font-md;
+  margin: 0;
+}
+
+.student-number {
+  color: $color-text-muted;
+  font-size: $font-sm;
+}
+
+.student-breakdown {
+  padding: 0 $space-md $space-md;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  border-top: 1px solid $color-border;
+  padding-top: $space-md;
+}
+
+.no-data {
+  color: $color-text-muted;
+  font-size: $font-sm;
+  margin: 0;
+}
+
+.lesson-breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.lesson-breakdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: $font-sm;
+  color: $color-text-main;
+  font-weight: 600;
+}
+
+.lesson-percentage {
+  color: $color-primary;
+}
+
+.student-progress-bar {
+  height: 6px;
+  border-radius: $radius-sm;
+  background: $color-surface-dark;
+  overflow: hidden;
+
+  div {
+    height: 100%;
+    background: $color-primary;
+    border-radius: $radius-sm;
+  }
+}
+
+.lesson-exam-scores {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xxs;
+  margin-top: $space-xs;
+}
+
+.lesson-exam-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: $font-xs;
+  color: $color-text-muted;
+  background: $color-surface-dark;
+  border-radius: $radius-sm;
+  padding: $space-xs $space-sm;
+}
+
+.exam-name {
+  color: $color-text-muted;
+}
+
+.exam-status.pass {
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.exam-status.fail {
+  color: #ef4444;
+  font-weight: 700;
+}

@@ -1,0 +1,103 @@
+@use "../../styles/variables" as *;
+
+.iranian-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: $radius-sm;
+    background: transparent;
+    color: $color-text-muted;
+    cursor: pointer;
+    @include flex-center;
+    @include smooth-transition;
+
+    &:hover {
+      background: $color-surface-dark;
+      color: $color-primary;
+    }
+  }
+}
+
+.calendar-title {
+  font-size: $font-sm;
+  font-weight: 700;
+  color: $color-text-main;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  span {
+    text-align: center;
+    font-size: $font-xs;
+    color: $color-text-muted;
+  }
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-cell {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-xs;
+  color: $color-text-main;
+  border-radius: $radius-sm;
+
+  &.today {
+    background: $color-primary;
+    color: white;
+    font-weight: 700;
+  }
+
+  &.empty {
+    visibility: hidden;
+  }
+
+  &.clickable {
+    cursor: pointer;
+    @include smooth-transition;
+
+    &:hover {
+      background: $color-surface-dark;
+    }
+  }
+
+  &.today.clickable:hover {
+    filter: brightness(1.08);
+  }
+
+  &.has-notification::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $color-primary;
+  }
+
+  &.today.has-notification::after {
+    background: #fff;
+  }
+}
